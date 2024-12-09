@@ -9,60 +9,60 @@ module.exports = (sequelize, Sequelize) => {
         },
         student_name:{
             type: Sequelize.STRING,
-            allownull: false,
+            allowNull: false,
         },
         surname:{
             type: Sequelize.STRING,
-            allownull: false,
+            allowNull: false,
         },
         gender:{
             type: Sequelize.STRING,
-            allownull: false,
+            allowNull: false,
         },
         stud_phone_no:{
             type: Sequelize.STRING,
-            allownull: false,
+            allowNull: false,
         },
         stud_email:{
             type: Sequelize.STRING,
-            allownull: false,
+            allowNull: false,
             unique: true,
         },
         Branch:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         Division:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         father_name:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         mother_name:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         parent_email:{
             type: Sequelize.STRING,
-            allownull:true,
+            allowNull: true,
         },
         parent_phone_no:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         year_of_admission:{
             type: Sequelize.DATEONLY,
-            allownull:false,
+            allowNull: false,
         },
         student_address:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         },
         pincode:{
             type: Sequelize.STRING,
-            allownull:false,
+            allowNull: false,
         }
     });
 

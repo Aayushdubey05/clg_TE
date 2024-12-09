@@ -37,6 +37,13 @@ db.sequelize.sync()
 //         console.log("Database & tables created!");
 //     })
 
+
+//IMPORTING AND USING ROUTES
+const signupRoutes = require('./src/routes/signup.route');
+app.use('/api/signup', signupRoutes);
+
+const loginRoutes = require('./src/routes/login.route');
+app.use('/api/login', loginRoutes);
 const PORT = process.env.PORT || 8080;
 
 app.listen(PORT, () => {

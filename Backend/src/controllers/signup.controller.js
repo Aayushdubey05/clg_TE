@@ -36,45 +36,46 @@ exports.create = (req, res) => {
 
 
     signup.create(user)
-       .then(data => {
-        res.send(data)
-       })
-       .catch(err => {
-        res.send.status(500)({
-            message: err.message || "Some error occurred while creating the Tutorial."
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            console.error("Error creating user:", err);
+            res.status(500).send({
+                message: err.message || "Some error occurred while creating the user."
+            });
         });
-       });
 };
 
 //function to retireve all the users (to update in future)
-exports.findAll = (req , res) => {
+// exports.findAll = (req , res) => {
 
-};
+// };
 
-//functon to find single user with an id  (for further updates)
-exports.findOne = (req , res) => {
+// //functon to find single user with an id  (for further updates)
+// exports.findOne = (req , res) => {
 
-};
+// };
 
-//function to update a user details (for further updates)
-exports.update = (req, res) => {
+// //function to update a user details (for further updates)
+// exports.update = (req, res) => {
 
-};
+// };
 
-//function to delete a specific user (for further updates in future)
-exports.delete = (req, res) => {
+// //function to delete a specific user (for further updates in future)
+// exports.delete = (req, res) => {
 
-};
+// };
 
-//function to delete all the users (for further updates in future)
-exports.deleteAll = (req, res) => {
+// //function to delete all the users (for further updates in future)
+// exports.deleteAll = (req, res) => {
 
-};
+// };
 
-//function to all see all the users (for further updates in future)
-exports.findAllUsers = (req, res) => {
+// //function to all see all the users (for further updates in future)
+// exports.findAllUsers = (req, res) => {
 
-};
+// };
 
 
 
