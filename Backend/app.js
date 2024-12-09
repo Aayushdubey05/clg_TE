@@ -27,6 +27,7 @@ db.sequelize.sync()
     console.log("Failed to sync db"+err.message);
    });
 
+   //With all the commentend part I was kinding of facing some issue so deleted that part
 // db.sequelize.sync({ force: true }).then(() =>{
 //     console.log("Drop and re-sync db.");
 // });

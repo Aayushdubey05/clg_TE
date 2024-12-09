@@ -1,5 +1,5 @@
 const express = require('express');
-const app = require('cors');
+const cors = require('cors');
 //const { Signup } = require('../models/signup.model.js');
 const db = require("../models")
 const signup = db.signup;
