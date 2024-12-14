@@ -31,24 +31,24 @@ module.export = (sequelize, Sequelize ) => {
                     remarks: null
                 },
                 mht_cet_scoredcard: {
-                    file_path: null,
-                    original_name: null,
-                    file_size: null,
-                    uploaded_at: null,
-                    verified: false,
-                    verified_by: null,
-                    version: 1,
-                    remarks: null
+                    result: {
+                        score: null, // Floating-point number for score
+                        uploaded_at: null,
+                        verified: false,
+                        verified_by: null,
+                        version: 1,
+                        remarks: null
+                    }
                 },
                 twelfth_marksheet: {
-                    file_path: null,
-                    original_name: null,
-                    file_size: null,
-                    uploaded_at: null,
-                    verified: false,
-                    verified_by: null,
-                    version: 1,
-                    remarks: null
+                    result: {
+                        score: null, // Floating-point number for score
+                        uploaded_at: null,
+                        verified: false,
+                        verified_by: null,
+                        version: 1,
+                        remarks: null
+                    }
                 }
             }
         },
@@ -58,9 +58,7 @@ module.export = (sequelize, Sequelize ) => {
                 year_1:{
                     sem_1: {
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -70,9 +68,7 @@ module.export = (sequelize, Sequelize ) => {
                     },
                     sem_2: {
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -80,10 +76,8 @@ module.export = (sequelize, Sequelize ) => {
                             remarks: null
                         }
                     },
-                    grade_card: {
-                        file_path: null,
-                        original_name: null,
-                        file_size: null,
+                    ggrade_card: {
+                        score: null,
                         uploaded_at: null,
                         verified: false,
                         verified_by: null,
@@ -94,9 +88,7 @@ module.export = (sequelize, Sequelize ) => {
                 year_2:{
                     sem_3:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -106,9 +98,7 @@ module.export = (sequelize, Sequelize ) => {
                     },
                     sem_4:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -117,9 +107,7 @@ module.export = (sequelize, Sequelize ) => {
                         }
                     },
                     grade_card: {
-                        file_path: null,
-                        original_name: null,
-                        file_size: null,
+                        score: null,
                         uploaded_at: null,
                         verified: false,
                         verified_by: null,
@@ -130,9 +118,7 @@ module.export = (sequelize, Sequelize ) => {
                 year_3:{
                     sem_5:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -142,9 +128,7 @@ module.export = (sequelize, Sequelize ) => {
                     },
                     sem_6:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -153,9 +137,7 @@ module.export = (sequelize, Sequelize ) => {
                         }
                     },
                     grade_card: {
-                        file_path: null,
-                        original_name: null,
-                        file_size: null,
+                        score: null,
                         uploaded_at: null,
                         verified: false,
                         verified_by: null,
@@ -166,9 +148,7 @@ module.export = (sequelize, Sequelize ) => {
                 year_4:{
                     sem_7:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -178,9 +158,7 @@ module.export = (sequelize, Sequelize ) => {
                     },
                     sem_8:{
                         result: {
-                            file_path: null,
-                            original_name: null,
-                            file_size: null,
+                            score: null, // Floating-point number for score
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
@@ -189,9 +167,7 @@ module.export = (sequelize, Sequelize ) => {
                         }
                     },
                     grade_card: {
-                        file_path: null,
-                        original_name: null,
-                        file_size: null,
+                        score: null,
                         uploaded_at: null,
                         verified: false,
                         verified_by: null,
@@ -202,6 +178,6 @@ module.export = (sequelize, Sequelize ) => {
             }
         }
     });
-    
+
     return Dashboard;
 };
