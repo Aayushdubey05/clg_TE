@@ -1,3 +1,4 @@
+const { DATE } = require("sequelize");
 const db = require("../models");
 const Dashboard = db.dashboard;
 
@@ -14,11 +15,11 @@ exports.createDashboard = async (req,res) => {
         });
     }
 };
-
-function Calculateyear(admission_year){
-    const current_year = new Date().getFullYear();
-    return current_year-admission_year;
-}
+//function to calculate year 
+// function Calculateyear(admission_year){
+//     const current_year = new Date().getFullYear();
+//     return current_year-admission_year;
+// }
 
 exports.uploadDocument = async (req, res) => {
     try{
@@ -100,4 +101,40 @@ exports.uploadDocument = async (req, res) => {
     }
 };
 
+exports.getStudentDashboard = async (req, res) => {
+    try{
+        const { student_id } = req.params;
+        const dashboard = Dashboard.findOne({ where:{ student_id } });
 
+        if(!dashboard){
+            return res.status(404).json({message: "Dashboard not found"});
+        }
+
+        //Determining the current year based on the student's admission year
+        const admissionYear = new Date(dashboard.signup.year_of_admission).getFullYear();
+        const currentYear = new Date().getFullYear();
+        const yearsInCollege = currentYear - admissionYear;
+
+        //Prepareing the response data
+        const responseData = {
+            student_id: dashboard.student_id,
+            admission_documents: {
+                admission_card: dashboard.admission_documents.admission_card,
+                mht_cet_scoredcard: dashboard.admission_documents.mht_cet_scoredcard,
+                twelfth_marksheet: dashboard.admission_documents.twelfth_marksheet
+            },
+            academic_records: {}
+        };
+
+        for(let i = 1; i <= yearsInCollege; i++){
+            responseData.academic_records[`year_${i}`] = dashboard.academic_records[`year_${i}`];
+        }
+
+        res.status(200).json(responseData);
+    } catch (error){
+        res.status(500).json({
+            message: "Failed to fetch Dashboard",
+            error: error.message
+        });
+    }
+};
