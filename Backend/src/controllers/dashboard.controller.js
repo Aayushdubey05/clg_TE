@@ -29,10 +29,25 @@ exports.uploadDocument = async (req, res) => {
             return res.status(404).json({message: 'Dashboard not found'});
         }
 
-        if( document_type == 'admission_card'){
+        if( document_type === 'admission_card'){
             const admissionDocs = dashboard.admission_documents;
+            admissionDocs.admission_card = {
+                file_path: req.file.path,
+                original_name: req.file.originalname,
+                file_size: req.file.size,
+                uploaded_at: new Date(),
+                verified: false,
+                verified_by: null,
+                version: (admissionDocs.admission_card?.version || 0)+1,
+                remarks: null   
+            };
+            await dashboard.update({ admission_documents: admissionDocs });
+        }else if (document_type === 'mht_cet_scoredcard'){
+            const admissionDocs = dashboard.admission_documents
         }
     }
+    catch(error){
 
+    }
 };
 
