@@ -1,6 +1,6 @@
 const signup = require('./signup.model');
 
-module.export = (sequelize, Sequelize ) => {
+module.exports = (sequelize, Sequelize ) => {
     const Dashboard = sequelize.define("dashboard",{
         id: {
             type: Sequelize.INTEGER,

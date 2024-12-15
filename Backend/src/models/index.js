@@ -42,7 +42,7 @@ db.signup.hasOne(db.login, {
     onDelete: 'CASCADE'
 });
 
-db.login.belongTo(db.signup, {
+db.login.belongsTo(db.signup, {
     foreginKey: 'student_id',
     targetKey: 'id'
 })

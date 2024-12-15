@@ -44,7 +44,12 @@ app.use('/api/signup', signupRoutes);
 
 const loginRoutes = require('./src/routes/login.route');
 app.use('/api/login', loginRoutes);
+
+//Importing Dashboard routes
+const dashboardRoutes = require('./src/routes/dashboard.route');
+app.use('/api/dashboard', dashboardRoutes);
 const PORT = process.env.PORT || 8080;
+
 
 app.listen(PORT, () => {
     console.log(`server running at port ${PORT}`);
