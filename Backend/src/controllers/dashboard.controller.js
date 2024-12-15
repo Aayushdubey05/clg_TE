@@ -42,8 +42,21 @@ exports.uploadDocument = async (req, res) => {
                 remarks: null   
             };
             await dashboard.update({ admission_documents: admissionDocs });
-        }else if (document_type === 'mht_cet_scoredcard'){
-            const admissionDocs = dashboard.admission_documents
+        } else if (document_type === 'mht_cet_scoredcard'){
+            const admissionDocs = dashboard.admission_documents;
+            admissionDocs.mht_cet_scoredcard = {
+                result: {
+                    score: score,
+                    uploaded_at: new Date(),
+                    verified: false,
+                    verified_by: null,
+                    version: (admissionDocs.mht_cet_scoredcard?.result?.version || 0)+1,
+                    remarks: null
+                }
+            };
+            await dashboard.update({ admission_documents: admissionDocs });
+        } else if (document_type === 'twelft_marksheet'){
+            
         }
     }
     catch(error){
