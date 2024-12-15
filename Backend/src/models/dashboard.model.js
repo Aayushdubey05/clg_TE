@@ -132,7 +132,7 @@ module.export = (sequelize, Sequelize ) => {
                             uploaded_at: null,
                             verified: false,
                             verified_by: null,
-                            version: 1,
+                            version: 1, 
                             remarks: null
                         }
                     },
