@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
 
 const app = express();
 
@@ -12,6 +13,11 @@ app.use(cors(corsOption));
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true}));
+
+const uploadsDir = './uploads';
+if(!fs.existsSync(uploadsDir)){
+    fs.mkdirSync(uploadsDir);
+}
 
 app.get("/",(req,res) => {
     res.json({ message: "Welcome to the Website "})

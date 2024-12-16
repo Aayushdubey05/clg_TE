@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
     service: 'Gmail',// Use any other mail domain e.g Yahoo, onedrive
     auth: {
         user: 'dubeyaayush333@gmail.com',//Configure this with main email id
-        pass: '05@Aayush',//configure this with main email id password
+        pass: 'Ayush@4451',//configure this with main email id password
     }
 })
 

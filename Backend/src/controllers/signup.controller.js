@@ -31,8 +31,9 @@ exports.create = (req, res) => {
         parent_phone_no: req.body.parent_phone_no,
         year_of_admission: req.body.year_of_admission,
         student_address: req.body.student_address,
-        pincode: req.body.pincode
-    }
+        pincode: req.body.pincode,
+        image: req.file ? req.file.path : null
+    };
 
 
     signup.create(user)
