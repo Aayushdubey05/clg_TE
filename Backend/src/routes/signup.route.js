@@ -4,6 +4,5 @@ const upload = require('../middleware/upload.middleware');
 
 const router = express.Router();
 
-router.post('/signup',upload.single('image'),signupController.create); //This route for signups
-
+router.post('/',upload.single('image'),signupController.create); //This route for signups
 module.exports = router;

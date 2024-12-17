@@ -22,10 +22,10 @@ function generateOTP(){
 }
 
 // Function to check if email is registered
-// async function isEmailRegistered(email) {
-//     const registeredUser = await signup.findOne({ where: { email } });
-//     return !!registeredUser;
-// }
+async function isEmailRegistered(email) {
+    const registeredUser = await signup.findOne({ where: { email } });
+    return !!registeredUser;
+}
 
 async function generateandStoreOTP(email){
     const otp = generateOTP();
@@ -67,7 +67,7 @@ async function verifyOTP(email, otp){
 
 module.exports = {
     generateandStoreOTP,
-    //isEmailRegistered, ... //this will import export the functions
+    isEmailRegistered, //this will import export the functions
     sendOTPEmail,
     verifyOTP,
 };

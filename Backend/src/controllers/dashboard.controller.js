@@ -30,7 +30,10 @@ exports.uploadDocument = async (req, res) => {
     try {
         const { student_id, document_type, year, semester, score } = req.body;
 
-        const dashboard = await Dashboard.findOne({ where: { student_id } });
+        const dashboard = await Dashboard.findOne({ where: { student_id }, include: [{
+            model: db.signup,
+            attributes: ['year_of_admission']
+        }]});
 
         if (!dashboard) {
             return res.status(404).json({ message: 'Dashboard not found' });
