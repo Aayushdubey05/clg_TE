@@ -4,7 +4,7 @@ const cors = require('cors');
 const db = require("../models")
 const signup = db.signup;
 const Op = db.Sequelize.Op;
-
+const dashboard = db.dashboard;
 //function to create new user 
 exports.create = (req, res) => {
     if(!req.body.student_name || !req.body.gender || !req.body.stud_phone_no
@@ -38,7 +38,10 @@ exports.create = (req, res) => {
 
     signup.create(user)
         .then(data => {
-            res.send(data);
+            return dashboard.create({ student_id: data.id });
+        })
+        .then(() => {
+            res.send(user);
         })
         .catch(err => {
             console.error("Error creating user:", err);
