@@ -15,8 +15,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 
 const uploadsDir = './uploads';
+const documentsDir = './uploads/documents'
 if(!fs.existsSync(uploadsDir)){
-    fs.mkdirSync(uploadsDir);
+    fs.mkdirSync(uploadsDir); // for storing the user profile pic 
+}
+
+if(!fs.existsSync(documentsDir)){
+    fs.mkdirSync(documentsDir); //Created Documents Directory for the getting the admission card 
 }
 
 app.get("/",(req,res) => {

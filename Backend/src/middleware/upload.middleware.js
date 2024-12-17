@@ -3,9 +3,13 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/');
+        if (file.fieldname === 'admission_card') {
+            cb(null, 'uploads/documents');
+        } else {
+            cb(null, 'uploads/');
+        }
     },
-    filename: (req , file , cb) => {
+    filename: (req, file, cb) => {
         cb(null, Date.now() + path.extname(file.originalname));
     }
 });
