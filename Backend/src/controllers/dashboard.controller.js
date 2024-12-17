@@ -2,19 +2,22 @@ const { DATE } = require("sequelize");
 const db = require("../models");
 const Dashboard = db.dashboard;
 
-exports.createDashboard = async (req,res) => {
-    try{
-        const dashboard = await Dashboard.create({
-            student_id: req.body.student_id
-        });
-        res.status(201).json(dashboard);
-    } catch(error){
-        res.status(500).json({
-            message:"Failed to Create the Dashboard",
-            error: error.message
-        });
-    }
-};
+
+/* *Commenting the creation of Dashboard function because it will automatically get creates whenever new signup happens*
+   *if not required u can also delete this function* */
+// exports.createDashboard = async (req,res) => {
+//     try{
+//         const dashboard = await Dashboard.create({
+//             student_id: req.body.student_id
+//         });
+//         res.status(201).json(dashboard);
+//     } catch(error){
+//         res.status(500).json({
+//             message:"Failed to Create the Dashboard",
+//             error: error.message
+//         });
+//     }
+// };
 //function to calculate year 
 // function Calculateyear(admission_year){
 //     const current_year = new Date().getFullYear();
@@ -115,7 +118,7 @@ exports.getStudentDashboard = async (req, res) => {
         const currentYear = new Date().getFullYear();
         const yearsInCollege = currentYear - admissionYear;
 
-        //Prepareing the response data
+        //Preparing the response data
         const responseData = {
             student_id: dashboard.student_id,
             admission_documents: {

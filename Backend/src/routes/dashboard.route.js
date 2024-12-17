@@ -5,7 +5,8 @@ const { model } = require('mongoose');
 
 
 //for creating new student on the dashboard
-router.post('/create', dashboardController.createDashboard);
+//commenting the create router because creation of Dashboard has been automated 
+//router.post('/create', dashboardController.createDashboard);
 
 //for uploading the documents (admission_card, and all other listed things in models)
 router.post('/upload', dashboardController.uploadDocument);
