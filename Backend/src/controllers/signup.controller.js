@@ -51,6 +51,40 @@ exports.create = (req, res) => {
         });
 };
 
+// Function to get user ID by email
+exports.getIdByEmail = (req, res) => {
+    const { stud_email } = req.body;
+    console.log("sfda",stud_email)
+    if (!stud_email) {
+        res.status(400).send({
+            message: "Email is required!"
+        });
+        return;
+    }
+
+    signup.findOne({
+        where: { stud_email: stud_email }
+    })
+    .then(user => {
+        console.log("found")
+        if (!user) {
+            res.status(404).send({
+                message: `User with email ${stud_email} not found.`
+            });
+            return;
+        }
+        res.send({ id: user.id });
+    })
+    .catch(err => {
+        console.error("Error retrieving user by email:", err);
+        res.status(500).send({
+            message: "Some error occurred while retrieving the user ID."
+        });
+    });
+};
+
+
+
 //function to retireve all the users (to update in future)
 // exports.findAll = (req , res) => {
 
