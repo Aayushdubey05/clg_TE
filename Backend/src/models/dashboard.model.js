@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize ) => {
         //admission Documents in the intial stage after the creation of records 
         admission_documents: {
             type: Sequelize.JSON,
-            default_value: {
+            defaultValue: {
                 admission_card: {
                     file_path: null,
                     original_name: null,
